@@ -4,9 +4,9 @@
   "main": "server.js",
   "type": "commonjs",
   "scripts": {
-    "start": "node server.js",
-    "build": "npm ci --omit=dev --cache .npm-cache --no-audit --no-fund"
-  },
+  "start": "node server.js",
+  "build": "npm ci --omit=dev --no-cache --no-audit --no-fund"
+},
   "engines": {
     "node": "22.x"
   },
@@ -14,3 +14,4 @@
     "express": "^4.18.2"
   }
 }
+
