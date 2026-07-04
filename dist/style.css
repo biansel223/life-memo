@@ -1,0 +1,52 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; max-width: 480px; margin: 20px auto; padding: 0 16px; color: #1d1d1f; }
+h1 { text-align: center; margin: 0 0 12px; font-size: 22px; }
+.stats { font-size: 12px; color: #888; margin-bottom: 10px; text-align: center; }
+.add-bar { display: flex; gap: 6px; margin-bottom: 10px; }
+.add-bar input { flex: 1; padding: 8px; border: 1px solid #ddd; border-radius: 6px; font-size: 14px; }
+.add-bar select { padding: 8px; border: 1px solid #ddd; border-radius: 6px; }
+button { padding: 8px 12px; cursor: pointer; border: 1px solid #ddd; border-radius: 6px; background: #fff; font-size: 13px; }
+button:hover { background: #f5f5f5; }
+.bar2 { display: flex; gap: 6px; margin-bottom: 10px; }
+.bar2 select { padding: 6px; border: 1px solid #ddd; border-radius: 6px; }
+.tabs { display: flex; gap: 4px; margin-bottom: 10px; flex-wrap: wrap; }
+.tabs button { flex: none; padding: 4px 10px; font-size: 13px; border-radius: 12px; border: 1px solid #ddd; background: #f5f5f5; }
+.tabs button.active { background: #333; color: #fff; border-color: #333; }
+.section-title { font-size: 13px; color: #666; margin: 12px 0 4px; font-weight: 600; }
+ul { list-style: none; padding: 0; }
+li { padding: 8px 0; border-bottom: 1px solid #f0f0f0; display: flex; align-items: center; gap: 8px; }
+.info { flex: 1; min-width: 0; }
+.row { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+.tag { font-size: 12px; padding: 1px 6px; border-radius: 3px; color: #333; }
+.time { font-size: 12px; color: #999; margin-top: 2px; }
+.del { color: red; cursor: pointer; white-space: nowrap; font-size: 13px; }
+.modal { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.4); justify-content: center; align-items: center; z-index: 10; }
+.modal.show { display: flex; }
+.modal-box { background: #fff; border-radius: 10px; padding: 24px; max-width: 360px; width: 90%; text-align: center; }
+.modal-box .tag { display: inline-block; margin-bottom: 8px; }
+.modal-box .text { font-size: 18px; margin: 12px 0; }
+.modal-box .time { margin-bottom: 16px; }
+.modal-box button { margin-top: 8px; }
+.empty { text-align: center; color: #aaa; padding: 20px 0; font-size: 14px; }
+.tag-日常 { background: #e2e3e5; }
+.tag-健身 { background: #d4edda; }
+.tag-高光 { background: #fff3cd; }
+.tag-箴言 { background: #d1ecf1; }
+.dashboard { background: #fff; border: 1px solid #e5e5e5; border-radius: 12px; margin-bottom: 14px; overflow: hidden; }
+.dash-header { padding: 16px 18px 0; }
+.dash-header h2 { font-size: 16px; font-weight: 600; margin-bottom: 4px; }
+.dash-status { display: inline-block; font-size: 12px; padding: 2px 8px; border-radius: 10px; margin-bottom: 10px; font-weight: 500; }
+.status-zl { background: #e8f5e9; color: #2e7d32; }
+.status-cs { background: #fff3e0; color: #e65100; }
+.status-hy { background: #fce4ec; color: #c62828; }
+.status-pj { background: #e3f2fd; color: #1565c0; }
+.dash-divider { height: 1px; background: #f0f0f0; margin: 0 18px; }
+.dash-stats { display: flex; justify-content: space-around; padding: 14px 18px; }
+.dash-stat { text-align: center; }
+.dash-stat-num { font-size: 20px; font-weight: 600; }
+.dash-stat-label { font-size: 11px; color: #999; margin-top: 2px; }
+.dash-section { padding: 12px 18px; }
+.dash-section-title { font-size: 12px; color: #999; font-weight: 500; margin-bottom: 6px; }
+.dash-section-text { font-size: 14px; color: #333; line-height: 1.5; }
+.dash-section-saying { font-size: 15px; font-weight: 600; }
+.summary-empty { font-size: 14px; color: #aaa; padding: 16px 18px; }

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Life Memo</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<h1>Life Memo</h1>
+<div id="summary"></div>
+<div class="stats" id="stats"></div>
+<div class="add-bar">
+  <input id="inp" placeholder="输入一条记录...">
+  <select id="cat">
+    <option>日常</option><option>健身</option><option>高光</option><option>箴言</option>
+  </select>
+  <button onclick="save()">保存</button>
+</div>
+<div class="bar2">
+  <select id="rcat">
+    <option value="">全部</option><option>健身</option><option>日常</option><option>高光</option><option>箴言</option>
+  </select>
+  <button onclick="recall()">随机回忆</button>
+</div>
+<div class="tabs" id="tabs"></div>
+<div id="content"></div>
+<div class="modal" id="modal" onclick="if(event.target===this)closeModal()">
+  <div class="modal-box">
+    <div id="mTag" class="tag"></div>
+    <div id="mText" class="text"></div>
+    <div id="mTime" class="time"></div>
+    <button onclick="closeModal()">关闭</button>
+  </div>
+</div>
+<script src="app.js"></script>
+</body>
+</html>
