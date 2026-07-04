@@ -4,37 +4,38 @@ const path = require("path");
 
 const app = express();
 
-// ✅ Railway 必须使用这个端口
 const PORT = process.env.PORT || 3000;
 
 app.use(express.json());
 
 // =====================
-// 静态文件（前端 dist）
+// 静态文件（安全版）
 // =====================
-app.use(express.static(path.join(__dirname, "dist")));
+const distPath = path.join(__dirname, "dist");
+if (fs.existsSync(distPath)) {
+  app.use(express.static(distPath));
+}
 
 // =====================
-// 数据文件路径
+// 健康检查（Railway推荐）
+// =====================
+app.get("/health", (req, res) => {
+  res.send("ok");
+});
+
+// =====================
+// 数据文件
 // =====================
 const DATA_FILE = path.join(__dirname, "data.json");
 
-// =====================
-// 初始化数据文件
-// =====================
 if (!fs.existsSync(DATA_FILE)) {
   fs.writeFileSync(DATA_FILE, "[]", "utf-8");
 }
 
-// =====================
-// 工具函数
-// =====================
 function readData() {
   try {
-    const raw = fs.readFileSync(DATA_FILE, "utf-8");
-    return JSON.parse(raw || "[]");
-  } catch (err) {
-    console.log("readData error:", err);
+    return JSON.parse(fs.readFileSync(DATA_FILE, "utf-8"));
+  } catch {
     return [];
   }
 }
@@ -44,15 +45,12 @@ function writeData(data) {
 }
 
 // =====================
-// API：获取列表
+// API
 // =====================
 app.get("/api/list", (req, res) => {
   res.json(readData());
 });
 
-// =====================
-// API：新增记录
-// =====================
 app.post("/api/add", (req, res) => {
   const data = readData();
   data.push(req.body);
@@ -60,9 +58,6 @@ app.post("/api/add", (req, res) => {
   res.json({ ok: true });
 });
 
-// =====================
-// API：删除记录
-// =====================
 app.post("/api/delete", (req, res) => {
   const data = readData();
   const index = req.body.index;
@@ -76,14 +71,7 @@ app.post("/api/delete", (req, res) => {
 });
 
 // =====================
-// 前端路由兜底（关键！避免刷新404）
-// =====================
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "dist", "index.html"));
-});
-
-// =====================
-// 启动服务（Railway标准写法）
+// 启动
 // =====================
 app.listen(PORT, () => {
   console.log("🚀 Life Memo running on port:", PORT);
